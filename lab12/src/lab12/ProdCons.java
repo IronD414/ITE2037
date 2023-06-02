@@ -21,7 +21,7 @@ public class ProdCons {
 		// constructor
 		public Producer(Buffer buffer) {this.buffer = buffer;}
 		// add random number by buffer size
-		public void produce() throws InterruptedException
+		public synchronized void produce() throws InterruptedException
 		{
 			for (int i = 0; i < this.buffer.getSize(); ++i)
 			{
@@ -45,7 +45,7 @@ public class ProdCons {
 		// constructor
 		public Consumer(Buffer buffer) {this.buffer = buffer;}
 		// remove data by buffer size
-		public void consume() throws InterruptedException
+		public synchronized void consume() throws InterruptedException
 		{
 			for (int i = this.buffer.getSize(); i > 0; --i)
 			{
